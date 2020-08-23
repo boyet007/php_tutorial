@@ -1,5 +1,10 @@
 <?php 
-    $score = 100
+    //session
+    if(isset($_POST['submit'])) {
+        session_start();
+        $_SESSION['name'] = $_POST['name'];
+        header('Location: index.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +15,9 @@
     <title>php tuts</title>
 </head>
 <body>
-    <p><?php echo $score > 40 ? 'high score!' : 'low score'; ?></p>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <input type="text" name="name" id="">
+         <input type="submit" value="submit" name="submit">
+    </form>
 </body>
 </html>

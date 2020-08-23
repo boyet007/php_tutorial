@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+
+    if($_SERVER['QUERY_STRING'] === 'noname') {
+        session_unset();
+    }
+
+    $name = $_SESSION['name'] ?? 'Guest';
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -20,7 +29,8 @@
         <div class="container">
             <a href="index.php" class="brand-logo brand-text">Mario Pizza</a>
             <ul id="nav-mobile" class="right hide-on-small-and-down">
-                <li><a href="   /add.php" class="btn brand z-depth-0">Add a Pizza</a></li>
+                <li class="black-text">Hello <?php echo htmlspecialchars($name);  ?></li>
+                <li><a href="/add.php" class="btn brand z-depth-0">Add a Pizza</a></li>
             </ul>
         </div>
     </nav>
