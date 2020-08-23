@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `pizzas` (
-  `id` int(11) NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(50) NOT NULL DEFAULT '',
   `ingredients` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(50) NOT NULL DEFAULT '',
@@ -50,10 +50,14 @@ INSERT INTO `pizzas` (`id`, `title`, `ingredients`, `email`, `created_at`) VALUE
 --
 -- Indexes for table `pizzas`
 --
-ALTER TABLE `pizzas`
-  ADD PRIMARY KEY (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+ALTER TABLE `pizzas`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `pizzas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+COMMIT;

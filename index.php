@@ -1,11 +1,6 @@
 <?php 
-    //connect to database
-    $conn = mysqli_connect('localhost', 'root', 'Wynne!324', 'mariopizzadb');
-
-    //check connection
-    if(!$conn) {
-        echo 'Connection error: ' . mysqli_connect_error();
-    }
+   
+   include('./config/db_connect.php');
 
     //write query from all pizza
     $sql = 'SELECT title, ingredients, id FROM pizzas ORDER BY created_at';
@@ -17,7 +12,7 @@
     $pizzas = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     //memisahkan koma dengan dipetakan ke array
-    print_r(explode(',', $pizzas[1]['ingredients']));
+    //print_r(explode(',', $pizzas[1]['ingredients']));
 ?>
 
 <!DOCTYPE html>
