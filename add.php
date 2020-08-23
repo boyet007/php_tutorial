@@ -35,6 +35,12 @@
                 $errors['ingredients'] = 'Ingredients must be a comma separated list <br />';
             }
         }
+
+        if (array_filter($errors)) {
+
+        } else {
+            header('Location: index.php');
+        }
     }
 
 ?>
